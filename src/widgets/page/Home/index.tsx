@@ -1,7 +1,7 @@
 import { Switch, cn } from "@heroui/react";
 export default function Home() {
   return (
-    <div>
+    <div className="   ">
       首页
       <Switch
         classNames={{
@@ -25,9 +25,9 @@ export default function Home() {
         startContent={<div>启用</div>}
         // isSelected={item.state == 0 ? true : false}
         color="success"
-        // onValueChange={(val) => {
+      // onValueChange={(val) => {
 
-        // }}
+      // }}
       ></Switch>
     </div>
   );

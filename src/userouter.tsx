@@ -1,7 +1,7 @@
 import { lazy, Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import userTokenVessel from "./store/userToken_vessel.ts";
-
+import Loding from "./widgets/page/Loding.tsx";
 // 导入组件
 const Home = lazy(() => import("./widgets/page/Home")); //首页
 const Figure = lazy(() => import("./widgets/page/Figure")); //封装表格试列
@@ -15,7 +15,7 @@ const routeConfig = [
   {
     path: "/",
     element: (
-      <Suspense fallback={<div>⌛加载中...</div>}>
+      <Suspense fallback={<Loding></Loding>}>
         <Home />
       </Suspense>
     ),
@@ -23,7 +23,7 @@ const routeConfig = [
   {
     path: "/figure",
     element: (
-      <Suspense fallback={<div>⌛加载中...</div>}>
+      <Suspense fallback={<Loding></Loding>}>
         <Figure />
       </Suspense>
     ),
@@ -31,7 +31,7 @@ const routeConfig = [
   {
     path: "/from",
     element: (
-      <Suspense fallback={<div>⌛加载中...</div>}>
+      <Suspense fallback={<Loding></Loding>}>
         <From />
       </Suspense>
     ),
@@ -39,7 +39,7 @@ const routeConfig = [
   {
     path: "*", // 匹配所有未定义的路径
     element: (
-      <Suspense fallback={<div>⌛加载中...</div>}>
+      <Suspense fallback={<Loding></Loding>}>
         <NotFound />
       </Suspense>
     ),
