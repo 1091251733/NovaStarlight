@@ -107,7 +107,17 @@ const Navbar = () => {
                                     initial={{ opacity: 0, x: -20 }}
                                     animate={{ opacity: 1, x: 0 }}
                                     transition={{ delay: i * 0.08 }}
-                                    onClick={() => setMobileOpen(false)}
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        setMobileOpen(false);
+                                        // 等待菜单关闭动画完成后再滚动
+                                        setTimeout(() => {
+                                            const target = document.querySelector(link.href);
+                                            if (target) {
+                                                target.scrollIntoView({ behavior: "smooth" });
+                                            }
+                                        }, 300);
+                                    }}
                                     className="block py-2 text-gray-300 hover:text-cyan-400 text-base font-medium transition-colors"
                                 >
                                     {link.name}
@@ -118,7 +128,16 @@ const Navbar = () => {
                                 initial={{ opacity: 0, x: -20 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: 0.35 }}
-                                onClick={() => setMobileOpen(false)}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    setMobileOpen(false);
+                                    setTimeout(() => {
+                                        const target = document.querySelector("#contact");
+                                        if (target) {
+                                            target.scrollIntoView({ behavior: "smooth" });
+                                        }
+                                    }, 300);
+                                }}
                                 className="block text-center py-3 rounded-full text-sm font-semibold text-gray-950 bg-gradient-to-r from-cyan-400 to-blue-500"
                             >
                                 免费咨询
